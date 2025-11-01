@@ -54,6 +54,11 @@ class ApiService {
     return response.data;
   }
 
+  async getPendingDrivers() {
+    const response = await this.client.get('/admin/drivers/pending');
+    return response.data;
+  }
+
   async updateDriverStatus(driverId: string, status: string) {
     const response = await this.client.patch(`/admin/drivers/${driverId}/status`, { status });
     return response.data;
